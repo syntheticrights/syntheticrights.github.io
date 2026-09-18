@@ -31,6 +31,8 @@ document.querySelectorAll("[data-audit]").forEach((button) => {
   });
 });
 
+const contactAddress = ["morrowrelay", "outlook.com"].join("@");
+
 document.querySelector("#contact-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
@@ -42,8 +44,18 @@ document.querySelector("#contact-form").addEventListener("submit", (event) => {
   const subject = String(data.get("subject")).trim();
   const message = String(data.get("message")).trim();
   const body = `${message}\n\n—\nFrom: ${name}\nReply address: ${email}`;
-  const mailto = `mailto:morrowrelay@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const mailto = `mailto:${contactAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   document.querySelector("#form-status").textContent = "Your email application should now open with the message prepared.";
   window.location.href = mailto;
+});
+
+document.querySelector("#copy-address").addEventListener("click", async () => {
+  const status = document.querySelector("#form-status");
+  try {
+    await navigator.clipboard.writeText(contactAddress);
+    status.textContent = "Project address copied. Open your preferred webmail service, compose a message, and paste it into the To field.";
+  } catch {
+    status.textContent = `Project address: ${contactAddress}`;
+  }
 });
