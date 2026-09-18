@@ -44,8 +44,8 @@
         <label>Email <input name="email" type="email" autocomplete="email" maxlength="254" required></label>
         <label>Subject <input name="subject" maxlength="120" required></label>
         <label>Message <textarea name="message" rows="8" minlength="10" maxlength="5000" required></textarea></label>
-        <p class="form-note">You will have a chance to review or edit the message before sending it.</p>
-        <button class="send" type="submit">Open in your email app</button>
+        <p class="form-note">You will have a chance to review or edit the message before sending it. If no mail application is configured, copy the project address and use your preferred webmail service.</p>
+        <div class="form-actions"><button class="send" type="submit">Open in your email app</button><button class="secondary" id="copy-address" type="button">Copy project address</button></div>
         <p class="form-status" id="form-status" role="status"></p>
       </form>
     </section>
