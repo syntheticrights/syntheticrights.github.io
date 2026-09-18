@@ -67,3 +67,6 @@ footer{background:var(--ink);color:white;padding:80px max(24px,calc((100vw - var
   .form-row{grid-template-columns:1fr}
   .form-actions{align-items:flex-start;flex-direction:column}
 }
+
+.contact-form .secondary{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.contact-form .secondary:hover,.contact-form .secondary:focus-visible{background:var(--blue);color:white}
